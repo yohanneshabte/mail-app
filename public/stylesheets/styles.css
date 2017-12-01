@@ -1,0 +1,72 @@
+/* Header.ejs */
+header {
+    font-family: 'Playfair Display', serif;
+}
+.pointer:hover {
+    cursor: pointer;
+}
+.bg { 
+    opacity: 0.75;
+    z-index: -10;
+    position: fixed;
+    min-height: 100%; /* maybe 100% then overlay footer too */
+    min-width: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.my-navbar{
+    z-index: 999;
+    padding: 0;
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+/*footer.ejs*/
+i.designed-by {
+    font-family: 'Work Sans', sans-serif;
+    font-size: x-small;
+    width: 100%;
+    text-align: center;
+    color: rgba(212, 218, 212, 0.986);
+    overflow: hidden;
+}
+
+#help-container {
+    margin-top: 5%;
+    position: relative;
+    width:100%;
+}
+#how-to {
+    width: 100%;
+    padding: 0 auto;
+}
+#play {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#how-it {
+    width: 50%; 
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    transform: translate(-26%,-50%);
+    z-index: 500;
+}
+
+/* login.ejs */
+.login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Nunito', sans-serif;
+}
+.legend {
+    font-family: 'Vollkorn', sans-serif;
+}
