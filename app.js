@@ -4,11 +4,15 @@ app = express(),
 http = require('http').Server(app),
 io = require('socket.io')(http),
 path = require('path'),
-bodyParser = require('body-parser');
-http.listen(8080,function(){
-    console.log("running on 8080..");
-});
+bodyParser = require('body-parser'),
+mongo = require('mongoose'),
+keys = require('./config/keys');
 module.exports = io;
+
+//database handler
+mongo.connect(keys.mongodb.dbURI,function(){
+    console.log("connected to database");
+});
 
 app.set('view engine','ejs');
 
@@ -26,8 +30,13 @@ auth = require('./config/auth');
 //setup routes
 app.get('/', routes.home);
 app.use('/auth',authRoutes);
+
 app.get('*', routes.notFound);
 
 /* app.listen(3000, function() {
     console.log("app running on localhost:3000...");
 }); */
+
+http.listen(8080,function(){
+    console.log("running on 8080..");
+});
