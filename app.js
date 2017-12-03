@@ -6,11 +6,13 @@ io = require('socket.io')(http),
 path = require('path'),
 bodyParser = require('body-parser'),
 mongo = require('mongoose'),
+cookieSession = require('cookie-session'),
+passport = require('passport');
 keys = require('./config/keys');
 module.exports = io;
 
 //database handler
-mongo.connect(keys.mongodb.dbURI,function(){
+mongo.connect(keys.mongodb.dbURI,{useMongoClient:true}, function() {
     console.log("connected to database");
 });
 
@@ -20,6 +22,16 @@ app.set('view engine','ejs');
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'public')));
+
+//set up cookie
+app.use(cookieSession({
+    maxAge: 24*60*60*1000,
+    keys: [keys.session.cookieKey]
+}));
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //routes require
 var routes = require('./routes'),
