@@ -22,7 +22,6 @@ passport.use(
         User.findOne({googleId:profile.id}).then(function(existingUser){
             if(existingUser) {
                 //user exists
-                console.log('user is '+existingUser);
                 done(null,existingUser);
             } else {
                 //create user
@@ -34,8 +33,7 @@ passport.use(
                     firstname: profile.name.givenName,
                     lastname: profile.name.familyName,
                     imageURL: profile.photos[0].value
-                }).save().then(function(newUser){
-                    console.log("New user created: "+newUser);
+                }).save().then(function(newUser) {
                     done(null,newUser);
                 });
             }

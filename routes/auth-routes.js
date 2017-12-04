@@ -1,25 +1,25 @@
 const passport = require('passport'),
-app = require('express').Router();
+    app = require('express').Router();
 
-var io = require('../app');
+var io = require('../app').io;
 
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
     socket.on('login', function (data) {
         socket.emit("confirm", {});
         app.get('/google', passport.authenticate('google', {
-            scope: ['profile','email'],
+            scope: ['profile', 'email'],
             hd: "ole.augie.edu",
-            loginHint: data.userN+"@ole.augie.edu"
+            loginHint: data.userN + "@ole.augie.edu"
         }));
     });
 });
 
-app.get('/logout',function(req,res) {
+app.get('/logout', function (req, res) {
     res.end('logging out');
 });
- 
+
 //callback route for google
-app.get('/google/redirect', passport.authenticate('google'), function(req,res) {
+app.get('/google/redirect', passport.authenticate('google'), function (req, res) {
     res.redirect('/profile');
 });
 module.exports = app;
