@@ -23,6 +23,14 @@ mongo.connect(keys.mongodb.dbURI, { useMongoClient: true }, function () {
 
 app.set('view engine', 'ejs');
 
+//pass values to ejs directly
+app.locals = ({
+    site : {
+        pageTitle: "Mail Management",
+        siteTitle: "",
+    }
+});
+
 //handle post with express 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

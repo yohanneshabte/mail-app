@@ -1,4 +1,13 @@
-<title><%= title%></title>
+<title>
+    <% if (typeof badge !== 'undefined') { %>
+        <%// badge with number value inside () that can be used for page specific purposes %>
+        (<%= badge %>)
+    <% } %>
+    <%= site.pageTitle%> 
+    <% if (typeof addonTitle !== 'undefined') { %>        
+        : <%= addonTitle %>
+    <% } %>
+</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
