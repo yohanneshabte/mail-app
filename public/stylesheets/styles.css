@@ -16,6 +16,7 @@ header {
     background-size: cover;
 }
 .my-navbar{
+    height: 100px;
     z-index: 999;
     padding: 0;
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
@@ -39,6 +40,8 @@ i.designed-by {
     position: relative;
     width:100%;
 }
+
+
 #how-to {
     width: 100%;
     padding: 0 auto;
@@ -69,4 +72,31 @@ i.designed-by {
 }
 .legend {
     font-family: 'Vollkorn', sans-serif;
+}
+
+
+/*common*/
+.center-to-page {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: inherit;
+} 
+
+.page-content {
+    background: -webkit-linear-gradient(to right, #acb6e5, #86fde8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #acb6e5, #86fde8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    position: fixed;
+    padding: 2%;
+    margin:0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    top:100px;
+    bottom: 15px;
+    left:0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 5;
 }

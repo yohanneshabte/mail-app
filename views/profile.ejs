@@ -1,6 +1,98 @@
 <% include partials/top.ejs %>
+<!-- page content starts here -->
 
-<!-- page content starts here -->        
+<!-- No filter -->
+<% if (typeof filter === 'undefined') { %>
+    <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile?filter=all">View Mails</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" disabled>Tracking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" disabled>disabled</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+<% } %>
+
+<% if(filter == "history") { %>
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/profile?filter=all">All</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">History (Previous Pickups)</li>
+    </ol>
+</nav>
+<div class="list-group">
+        <% for(var i=0;i<mails.length;i++) { %>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">From </h5>
+                        <small><%= mails[i].recievedDate %></small>
+            
+                    </div>
+                    <p class="mb-1">Address: <%= mails[i].from %></p>
+                    <small>Size: <%= mails[i].size %> | Type: <%= mails[i].type %> |</small>
+            
+                </a>
+                <% } %>
+</div>
+<% } %>
+
+<% if(filter == "new") { %>
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/profile?filter=all">All</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">New</li>
+    </ol>
+</nav>
+<div class="list-group">
+        <% for(var i=0;i<mails.length;i++) { %>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">From </h5>
+                        <small><%= mails[i].recievedDate %></small>
+            
+                    </div>
+                    <p class="mb-1">Address: <%= mails[i].from %></p>
+                    <small>Size: <%= mails[i].size %> | Type: <%= mails[i].type %> </small>
+            
+                </a>
+        <% } %>
+</div>
+<% } %>
+
+<% if(filter == "all") { %>
+<% include partials/navigator.ejs %>
+<nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">All Mails</li>
+        </ol>
+    </nav>
+<div class="list-group">
+        <% for(var i=0;i<mails.length;i++) { %>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+
+                <small><%= mails[i].recievedDate %></small>
+    
+            </div>
+            <p class="mb-1">Address: <%= mails[i].from %></p>
+            <small>Size: <%= mails[i].size %>  | Type: <%= mails[i].type %> </small>
+    
+        </a>
+        <% } %>
+</div>
+<% } %>
+
+
 
 <!-- page content ends here -->
 

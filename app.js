@@ -8,7 +8,8 @@ var express = require('express'),
     mongo = require('mongoose'),
     cookieSession = require('cookie-session'),
     passport = require('passport'),
-    url = require('url');
+    url = require('url'),
+    shipit = require('shipit');
 //config requires
 var keys = require('./config/keys'),
     auth = require('./config/auth');
@@ -17,6 +18,7 @@ var keys = require('./config/keys'),
 module.exports = { io, url};
 
 //database handler
+mongo.Promise = global.Promise;
 mongo.connect(keys.mongodb.dbURI, { useMongoClient: true }, function () {
     console.log("connected to database");
 });
@@ -53,10 +55,12 @@ var routes = require('./routes'),
 
 
 //setup routes
-app.get('/', routes.home);
+app.use('/', routes);
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
-app.get('*', routes.notFound);
+app.get('*', function(req,res) {
+    res.render("404",{ addonTitle: "Page Not Found" });
+});
 
 /*  maybe go back to this if I decide to remove socket.io from the login 
 app.listen(3000, function() {

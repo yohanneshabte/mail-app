@@ -1,0 +1,9 @@
+<% if (typeof user !== 'undefined') { %>
+    <div class="btn-group container" role="group" aria-label="Basic example">
+            <button type="button" onclick="window.location.href = '/profile?filter=new'" class="btn btn-secondary">New Mail
+            <span class="badge"><%= mails.length %></span>
+            </button>
+            <button type="button" onclick="window.location.href = '/profile?filter=history'" class="btn btn-secondary">Mail History</button>
+    </div>
+    <hr class="my-4"> 
+<% } %>

@@ -1,5 +1,6 @@
 const passport = require('passport'),
-    app = require('express').Router();
+    app = require('express').Router(),
+    url = require('../app').url;
 
 var io = require('../app').io;
 
@@ -15,7 +16,11 @@ io.on('connection', function (socket) {
 });
 
 app.get('/logout', function (req, res) {
-    res.end('logging out');
+    req.logout();
+    res.redirect(url.format({
+        pathname: '/',
+        query: { 'redirectCode': 2 }
+    }));
 });
 
 //callback route for google
