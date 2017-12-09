@@ -1,0 +1,62 @@
+<% include navigator.ejs %>    
+
+
+<% if(filter == "history") { %>
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/profile?filter=all">All</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">History (Previous Pickups)</li>
+    </ol>
+</nav>
+<% } %>
+<% if(filter == "new") { %>
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/profile?filter=all">All</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">New</li>
+        </ol>
+    </nav>
+<% } %>    
+<% if(filter == "all") { %>
+    <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">All Mails</li>
+            </ol>
+    </nav>
+<% } %>
+
+<div class="list-group" >
+        <% for(var i=0;i<mails.length;i++) { %>  
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start <%= mails[i].new %>">
+            <div class="d-flex w-100 justify-content-between">
+                <div class="alert alert-success mail-head" role="alert">
+                    <h6 class="mb-1"><b>Sender:</b> <%= mails[i].sender %></h6>
+                </div>
+                <div class="alert alert-info mail-item" role="alert">
+                    <small><%= mails[i].dateDiff.value %> <%= mails[i].dateDiff.type %> ago</small>
+                </div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+                <div class="alert alert-light mail-item" role="alert">
+                    <p class="mb-1" style="font-size: smaller">Address: <%= mails[i].from %></p>  
+                </div>    
+            </div>
+            <div class="alert alert-dark mail-item" role="alert" style="font-family: 'Patua One', cursive">
+                <small>Size: <%= mails[i].size %>  | Type: <%= mails[i].type %> </small>
+            </div>    
+            <% if(mails[i].pickedup == false) { %>
+            <form method="GET" action="/profile" style="display:inline">
+            <input type="hidden" name="filter" value="<%=filter%>" />
+            <input type="hidden" name="mail" value="<%=mails[i].id%>" />
+            <button class="btn btn-success btn-sm btn3d" id="pickup" type="submit">
+                Retrieved <i class="fa fa-check"></i>
+            </button>
+            </form>
+            <% } %>
+        </a>
+        <% } %>
+</div>

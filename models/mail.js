@@ -7,7 +7,8 @@ var mailSchema = new Schema({
     recievedDate: Date,
     pickedup: {type: Boolean, default: false},
     size: {type: String, default: ''},
-    type: {type: String, default: 'envelope'}
+    type: {type: String, default: 'envelope'},
+    sender: { type: String, required: true}
 });
 
 var Mail = mongo.model('mail',mailSchema);

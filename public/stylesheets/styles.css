@@ -2,8 +2,8 @@
 header {
     font-family: 'Playfair Display', serif;
 }
-.pointer:hover {
-    cursor: pointer;
+.pointer {
+    cursor: pointer !important;
 }
 .bg { 
     opacity: 0.75;
@@ -26,6 +26,7 @@ header {
 
 
 /*footer.ejs*/
+
 i.designed-by {
     font-family: 'Work Sans', sans-serif;
     font-size: x-small;
@@ -99,4 +100,56 @@ i.designed-by {
     height: 100%;
     overflow: scroll;
     z-index: 5;
+}
+
+
+/* displayMail.ejs */
+#pickup {
+    float:right;
+}
+.newmail {
+    background: rgb(174, 222, 236) !important;
+}
+.mail-item, .mail-head {
+    display: inline !important;
+    overflow: scroll !important;
+}
+.mail-item {
+    margin:3px 0px 5px 0px !important;
+    padding:0px 5px 0px 5px !important;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500 !important;
+}
+.mail-head {
+    margin:0px 5px 3px 0px !important;
+    padding:5px 5px 3px 3px !important;
+    font-family: 'Spectral SC', serif !important;
+}
+
+.btn3d {
+    position:relative;
+    width: auto;
+    text-decoration:none;
+    border-radius:5px;
+    border:solid 1px rgb(13, 116, 13);
+    text-align:center;
+    padding:16px 18px 14px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    
+    -webkit-box-shadow: 0px 6px 0px rgb(13, 116, 13);
+    -moz-box-shadow: 0px 6px 0px rgb(13, 116, 13);
+    box-shadow: 0px 6px 0px rgb(13, 116, 13);
+}
+
+
+
+
+.card-head {
+    margin: 0 !important;
+    padding: 10px !important;
+    font-family: 'Spectral SC', serif !important; 
 }

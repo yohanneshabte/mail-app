@@ -1,98 +1,88 @@
 <% include partials/top.ejs %>
 <!-- page content starts here -->
-
-<!-- No filter -->
+<!-- No filter variable -->
 <% if (typeof filter === 'undefined') { %>
-    <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="/profile?filter=all">View Mails</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" disabled>Tracking</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" disabled>disabled</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-<% } %>
-
-<% if(filter == "history") { %>
-<nav aria-label="breadcrumb" role="navigation">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/profile?filter=all">All</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">History (Previous Pickups)</li>
-    </ol>
-</nav>
-<div class="list-group">
-        <% for(var i=0;i<mails.length;i++) { %>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">From </h5>
-                        <small><%= mails[i].recievedDate %></small>
-            
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show w-80" role="alert">
+            <strong>Welcome, <%= user.firstname %>!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="alert alert-primary card-head" role="alert">
+                            <b>Mails</b>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Check your new mails and mail history.</p>
+                            <a href="/profile?filter=all" class="btn btn-primary btn-block">
+                                <i class="fa fa-envelope"></i>
+                                View Mails
+                            </a>
+                        </div>
                     </div>
-                    <p class="mb-1">Address: <%= mails[i].from %></p>
-                    <small>Size: <%= mails[i].size %> | Type: <%= mails[i].type %> |</small>
-            
-                </a>
-                <% } %>
-</div>
-<% } %>
-
-<% if(filter == "new") { %>
-<nav aria-label="breadcrumb" role="navigation">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/profile?filter=all">All</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">New</li>
-    </ol>
-</nav>
-<div class="list-group">
-        <% for(var i=0;i<mails.length;i++) { %>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">From </h5>
-                        <small><%= mails[i].recievedDate %></small>
-            
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="alert alert-info card-head" role="alert">
+                            <b>Tracking</b>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">You can track your packages from any carrier here.</p>
+                            <a href="#" class="btn btn-info btn-block">
+                                <i class="fa fa-truck"></i>
+                                Track your Package
+                            </a>
+                        </div>
                     </div>
-                    <p class="mb-1">Address: <%= mails[i].from %></p>
-                    <small>Size: <%= mails[i].size %> | Type: <%= mails[i].type %> </small>
-            
-                </a>
-        <% } %>
-</div>
-<% } %>
-
-<% if(filter == "all") { %>
-<% include partials/navigator.ejs %>
-<nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">All Mails</li>
-        </ol>
-    </nav>
-<div class="list-group">
-        <% for(var i=0;i<mails.length;i++) { %>
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-
-                <small><%= mails[i].recievedDate %></small>
-    
+                </div>
             </div>
-            <p class="mb-1">Address: <%= mails[i].from %></p>
-            <small>Size: <%= mails[i].size %>  | Type: <%= mails[i].type %> </small>
-    
-        </a>
-        <% } %>
+        </div> <hr />
+    <div class="contaisner">   
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="alert alert-dark card-head" role="alert">
+                        <b>Settings</b>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Edit your profile and optimize your settings.</p>
+                        <a href="#" class="btn btn-dark btn-block">
+                            <i class="fa fa-gear"></i>
+                            Go to Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><hr />
+
+        <div class="row">  
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="alert alert-warning card-head" role="alert">
+                        <b>Help</b>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">You can track your packages from any carrier here.</p>
+                        <a href="#" class="btn btn-warning btn-block">
+                            <i class="fa fa-question-circle"></i>
+                            View Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div> 
 </div>
+<!-- filter assigned -->        
+<% } else { %>
+    <% include partials/displayMail.ejs %>
 <% } %>
 
-
+<br /><br /><br /><br /><br /><br />
 
 <!-- page content ends here -->
 
