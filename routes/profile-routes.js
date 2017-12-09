@@ -25,7 +25,11 @@ app.get('/', authCheck, function (req, res) {
         Mail.pickupMail(req.query.mail,function(err,check){
             console.log(req.query.mail + " got picked up");
         });
-    var title = req.user.firstname + " " +req.user.lastname + " Mail Feed";
+    var title;   
+    if(typeof req.query.filter === 'undefined')
+        title = req.user.firstname + " " +req.user.lastname + " Home";
+    else
+        title = req.user.firstname + " " +req.user.lastname + " Mail Feed(" + req.query.filter+")";
     Mail.fetchMailByUser(req.user.username,function(mails) { //check if this works when filter is undefined;
             res.render('profile', {
                 addonTitle: title,
