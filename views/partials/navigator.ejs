@@ -1,7 +1,7 @@
 <% if (typeof user !== 'undefined') { %>
     <div class="btn-group container" role="group">
             <button type="button" onclick="window.location.href = '/profile?filter=new'" class="btn btn-secondary" class="pointer">New Mail
-            <span class="badge"><%= mails.length %></span>
+            <span class="badge"><%= mails.count %></span>
             </button>
             <button type="button" onclick="window.location.href = '/profile?filter=history'" class="btn btn-secondary" class="pointer">Mail History</button>
     </div>

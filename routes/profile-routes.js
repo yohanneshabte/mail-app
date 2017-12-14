@@ -20,6 +20,8 @@ var authCheck = function (req, res, next) {
     }
 
 };
+
+
 app.get('/', authCheck, function (req, res) {
     if(typeof req.query.mail !== 'undefined')
         Mail.pickupMail(req.query.mail,function(err,check){

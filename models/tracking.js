@@ -2,11 +2,11 @@ var mongo = require('mongoose'),
 Schema = mongo.Schema;
 
 var trackingSchema = new Schema({
-    mailId: String,
+    username: String,
     trackingNum: String, //cast to int in node
     carrier: {type: String, default: ''}
 });
 
-var Mail = mongo.model('mail',mailSchema);
+var Tracking = mongo.model('tracking',trackingSchema);
 
-module.exports = Mail;
+module.exports = Tracking;

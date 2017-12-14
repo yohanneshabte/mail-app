@@ -17,7 +17,7 @@ header {
 }
 .my-navbar{
     height: 100px;
-    z-index: 999;
+    z-index: 50;
     padding: 0;
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
@@ -145,6 +145,12 @@ i.designed-by {
     box-shadow: 0px 6px 0px rgb(13, 116, 13);
 }
 
+
+/* tracking.ejs */
+
+#mapid { 
+    height: 400px; 
+}
 
 
 

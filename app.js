@@ -52,12 +52,14 @@ app.use(passport.session());
 var routes = require('./routes'),
     authRoutes = require('./routes/auth-routes'),
     profileRoutes = require('./routes/profile-routes');
+    trackingRoutes = require('./routes/tracking-routes');
 
 
 //setup routes
 app.use('/', routes);
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/tracking', trackingRoutes);
 app.get('*', function(req,res) {
     res.render("404",{ addonTitle: "Page Not Found" });
 });
