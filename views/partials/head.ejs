@@ -1,10 +1,23 @@
-<title><%= title%></title>
+<title>
+    <% if (typeof badge !== 'undefined') { %>
+        <%// badge with number value inside () that can be used for page specific purposes %>
+        (<%= badge %>)
+    <% } %>
+    <%= site.pageTitle%> 
+    <% if (typeof addonTitle !== 'undefined') { %>        
+        : <%= addonTitle %>
+    <% } %>
+</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="stylesheets/styles.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/MailIcon.png" />
 
 <!--google fonts-->
-<link href="https://fonts.googleapis.com/css?family=BenchNine|Nunito|Playfair+Display|Vollkorn:700|Work+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=BenchNine|Nunito|Patua+One|Playfair+Display|Raleway|Roboto|Spectral+SC|Vollkorn:700|Work+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+crossorigin=""/>

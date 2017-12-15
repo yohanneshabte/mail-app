@@ -1,0 +1,60 @@
+<% include partials/top.ejs %>
+<!-- page content starts here -->
+<div class="row">
+<div class="col-lg-12"> 
+<div class="card bg-light">
+        <div class="card-header">
+                <i class="fa fa-truck fa-lg"></i> Tracking
+        </div>
+        <form class="card-body" method="get" action="/tracking">
+            <div class="form-group">
+                <label for="trackingnum">Tracking Number: </label>
+                <input type="text" class="form-control" placeholder="Sample: 1122334455667788" disabled>       
+                <input type="hidden" name="trackingnum" value="1122334455667788">
+            </div>
+            <div class="form-group">
+                    <label for="carrier">Carrier:</label>
+                    <select multiple class="form-control" name="carrier" disabled>
+                      <option value="auto" selected>Detect Carrier *</option>  
+                      <option value="UPS">UPS</option>
+                      <option value="FedEx">FedEx</option>
+                      <option value="Smartpost">Smartpost</option>
+                      <option value="USPS">USPS</option>
+                      <option value="DHL">DHL</option>
+                    </select>
+                <small class="form-text text-muted">
+                        * Detect carrier can accurately guess the carrier from the 
+                        tracking number in 90% of the cases.
+                </small>
+            </div>
+            
+            <button type="submit" class="btn btn-info pointer">
+                <i class="fa fa-truck"></i>
+                Find Your Package</button>
+            <% if (typeof result !== 'undefined') { %>
+                <a role="button" href="/tracking" class="btn btn-warning pointer">
+                        <i class="fa fa-arrow-circle-left"></i> Go Back
+                </a>    
+            <% } %>    
+        </form>
+</div>
+</div>
+</div>
+
+<% if (typeof result !== 'undefined') { %>
+    <hr />
+<div class="row">   
+    <div class="col-lg-12"> 
+        <div class="card">
+            <div class="card-header bg-info card-head">
+                <i class="fa fa-check-circle fa-lg"></i> Tracking Number found.
+            </div>
+            <div class="card-body">
+                <% include partials/map.ejs %>  
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>
+<!-- page content ends here -->
+<% include partials/bottom.ejs %>

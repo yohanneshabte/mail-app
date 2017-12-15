@@ -1,0 +1,86 @@
+<% include partials/top.ejs %>
+<!-- page content starts here -->
+<!-- No filter variable -->
+<% if (typeof filter === 'undefined') { %>
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show w-80" role="alert">
+            <strong>Welcome, <%= user.firstname %>!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="alert alert-primary card-head" role="alert">
+                            <b>Mails</b>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Check your new mails and mail history.</p>
+                            <a href="/profile?filter=all" class="btn btn-primary btn-block">
+                                <i class="fa fa-envelope"></i>
+                                View Mails
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="alert alert-info card-head" role="alert">
+                            <b>Tracking</b>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">You can track your packages from any carrier here.</p>
+                            <a href="/tracking" class="btn btn-info btn-block">
+                                <i class="fa fa-truck"></i>
+                                Track your Package
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <hr />
+    <div class="contaisner">   
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="alert alert-dark card-head" role="alert">
+                        <b>Settings</b>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Edit your profile and optimize your settings.</p>
+                        <a href="#" class="btn btn-dark btn-block">
+                            <i class="fa fa-gear"></i>
+                            Go to Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><hr />
+
+        <div class="row">  
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="alert alert-warning card-head" role="alert">
+                        <b>Help</b>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">You can track your packages from any carrier here.</p>
+                        <a href="#" class="btn btn-warning btn-block">
+                            <i class="fa fa-question-circle"></i>
+                            View Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div> 
+</div>
+<!-- filter assigned -->        
+<% } else { %>
+    <% include partials/displayMail.ejs %>
+<% } %>
+
+<!-- page content ends here -->
+<% include partials/bottom.ejs %>

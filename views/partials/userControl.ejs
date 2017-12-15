@@ -1,0 +1,16 @@
+<% if (typeof user !== 'undefined') { %>
+    <button type="button" onclick="window.location.href = '/tracking'" class="btn btn-secondary pointer">
+            <i class="fa fa-truck" aria-hidden="true"></i> Tracking
+    </button>
+    <div class="btn-group btn-group-sm" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle pointer" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="<%= user.imageURL %>" style="border-radius:50%" width="30"/>
+            <%= user.firstname %> <%= user.lastname %>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="/profile/settings"><i class="fa fa-cog"></i> Settings</a>
+            <a class="dropdown-item" href="/auth/logout"><i class="fa fa-sign-out"></i> Log Out</a>
+        </div>
+    </div>
+<% } %>
