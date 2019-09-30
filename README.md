@@ -6,3 +6,6 @@ Web programming class project at Augustana University that helps students receiv
 ![doc 3](documentation/Mail_App_final_paper_and_documentation-3.jpg?raw=true)
 ![doc 4](documentation/Mail_App_final_paper_and_documentation-4.jpg?raw=true)
 ![doc 5](documentation/Mail_App_final_paper_and_documentation-5.jpg?raw=true)
+![doc 6](documentation/Mail_App_final_paper_and_documentation-6.jpg?raw=true)
+![doc 7](documentation/Mail_App_final_paper_and_documentation-7.jpg?raw=true)
+![doc 8](documentation/Mail_App_final_paper_and_documentation-8.jpg?raw=true)
